@@ -1,0 +1,42 @@
+//interface methods
+interface RBI
+{
+    String pb="RBI";
+    void roi();
+    default void policyNote()
+    {
+        System.out.println("RBI has a new Policy issued in 2023");
+    }
+    static void regulations()
+    {
+        System.out.println("RBI has updated new regulations in 2024.");
+    }
+}
+
+class SBI implements RBI
+{
+    public void roi ()
+    {
+        System.out.println("SBI rate of interest: 7.6 per annum.");
+    }
+}
+class karur implements RBI
+{
+    public void roi()
+    {
+        System.out.println("Karur rate of interest: 7.4 per annum.");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        SBI s=new SBI();
+        karur k=new karur();
+        s.policyNote();
+        RBI.regulations();
+        s.roi();
+        k.roi();
+    }
+}
