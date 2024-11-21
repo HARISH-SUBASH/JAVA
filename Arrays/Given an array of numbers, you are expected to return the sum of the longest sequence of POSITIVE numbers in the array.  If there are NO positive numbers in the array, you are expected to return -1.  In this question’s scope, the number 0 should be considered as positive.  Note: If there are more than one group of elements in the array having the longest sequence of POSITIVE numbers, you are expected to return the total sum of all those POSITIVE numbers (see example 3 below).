@@ -1,0 +1,57 @@
+import java.util.*;
+public class lop
+{
+    public static void main(String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        int in1=s.nextInt();
+        int[] in2=new int[in1];
+        for(int i=0;i<in1;i++)
+        {
+            in2[i]=s.nextInt();
+        }
+        int ml=0;
+        int ms=0;
+        int cl=0;
+        int cs=0;
+        boolean hasp=false;
+        for(int i=0;i<in1;i++)
+        {
+            if(in2[i]>=0)
+            {
+                cl++;
+                cs+=in2[i];
+                hasp=true;
+            }
+            else
+            {
+                if(cl>ml)
+                {
+                    ml=cl;ms=cs;
+                }
+                else if(cl==ml)
+                {
+                    ms+=cs;
+                }
+                cl=0;
+                cs=0;
+            }
+        }
+        if(cl>ml)
+        {
+            ms=cs;
+        }
+        else if(cl==ml)
+        {
+            ms+=cs;
+        }
+        if(hasp)
+        {
+            System.out.println(ms);
+        }
+        else
+        {
+            System.out.println("-1");
+        }
+    }
+}
