@@ -1,0 +1,32 @@
+//uppercase
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner obj=new Scanner(System.in);
+        String s=obj.nextLine();
+        String[] arr=s.split(":");
+        for(int i=0;i<arr.length;i++)
+        {
+            check(arr[i]);
+        }
+    }
+    public static void check(String y)
+    {
+        char a=y.charAt(0);
+        char b=y.charAt(1);
+        if(a==b)
+        {
+            System.out.print(Character.toUpperCase(a));
+        }
+        else
+        {
+            int n1=(int) a;
+            int n2=(int) b;
+            int n3=(Math.abs(n1-n2))+96;
+            char c=(char) n3;
+            System.out.print(Character.toUpperCase(c));
+        }
+    }
+}
