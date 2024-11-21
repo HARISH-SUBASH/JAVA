@@ -1,0 +1,58 @@
+//interface
+import java.util.*;
+interface playable
+{
+    void play();
+}
+
+class football implements playable
+{
+    String n;
+    public football(String n)
+    {
+        this.n=n;
+    }
+    public void play()
+    {
+        System.out.println(n+" is Playing football");
+    }
+}
+class volleyball implements playable
+{
+    String n;
+    public volleyball(String n)
+    {
+        this.n=n;
+    }
+    public void play()
+    {
+        System.out.println(n+" is Playing volleyball");
+    }
+}
+class basketball implements playable
+{
+    String n;
+    public basketball(String n)
+    {
+        this.n=n;
+    }
+    public void play()
+    {
+        System.out.println(n+" is Playing basketball");
+    }
+}
+public class Main
+{  public static void main(String[] args){
+    Scanner obj=new Scanner(System.in);
+    String s1=obj.next();
+    String s2=obj.next();
+    String s3=obj.next();
+    football f1=new football(s1);
+    volleyball f2=new volleyball(s2);
+    basketball f3=new basketball(s3);
+    f1.play();
+    f2.play();
+    f3.play();
+    obj.close();}
+    
+}
