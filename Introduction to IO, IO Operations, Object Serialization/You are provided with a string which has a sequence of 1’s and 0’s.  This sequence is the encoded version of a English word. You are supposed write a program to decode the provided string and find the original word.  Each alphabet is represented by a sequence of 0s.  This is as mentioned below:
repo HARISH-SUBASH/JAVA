@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class BinaryDecoder {
+
+    public static void main(String[] args) {
+        // Create a Scanner object for reading input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the encoded string
+        String encodedString = scanner.nextLine();
+
+        // Decode the string and print the result
+        String decodedWord = decodeBinaryString(encodedString);
+        System.out.println( decodedWord);
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    public static String decodeBinaryString(String encodedString) {
+        // Split the encoded string by '1' to get sequences of '0's
+        String[] letterCodes = encodedString.split("1");
+        StringBuilder decodedWord = new StringBuilder();
+
+        for (String letterCode : letterCodes) {
+            int zeroCount = letterCode.length(); // Count the number of '0's in the sequence
+            if (zeroCount > 0) {
+                // Calculate the corresponding letter from 'Z' to 'A'
+                char decodedChar = (char) ('Z' - zeroCount + 1);
+                decodedWord.append(decodedChar);
+            }
+        }
+
+        return decodedWord.toString();
+    }
+}
