@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class SentenceTransformer {
+
+    public static void main(String[] args) {
+        // Create a scanner to read user input
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ask the user for a sentence
+        
+        String sentence = scanner.nextLine();
+
+        // Ask the user for the case option
+        int caseOption = scanner.nextInt();
+
+        // Transform the sentence based on user input
+        String transformedSentence = transformSentence(sentence, caseOption);
+        System.out.println(transformedSentence);
+        
+        // Close the scanner
+        scanner.close();
+    }
+
+    public static String transformSentence(String sentence, int caseOption) {
+        // Split the sentence into individual words
+        String[] words = sentence.split(" ");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            // Reverse the word
+            String reversedWord = new StringBuilder(word).reverse().toString();
+
+            if (caseOption == 1) {
+                // Preserve the case positions based on the original word
+                reversedWord = preserveCaseWithPosition(word, reversedWord);
+            }
+
+            // Append the reversed word to the result with a space
+            result.append(reversedWord).append(" ");
+        }
+
+        // Remove the last trailing space and return the final result
+        return result.toString().trim();
+    }
+
+    // Function to preserve the original case position while reversing
+    private static String preserveCaseWithPosition(String original, String reversed) {
+        StringBuilder modifiedWord = new StringBuilder();
+
+        // Loop through each character of the reversed word and the original word
+        for (int i = 0; i < original.length(); i++) {
+            char originalChar = original.charAt(i);
+            char reversedChar = reversed.charAt(i);
+
+            // If the character is alphabetic, preserve its case
+            if (Character.isAlphabetic(originalChar)) {
+                if (Character.isUpperCase(originalChar)) {
+                    modifiedWord.append(Character.toUpperCase(reversedChar));
+                } else {
+                    modifiedWord.append(Character.toLowerCase(reversedChar));
+                }
+            } else {
+                // If the character is not alphabetic (e.g., punctuation), don't change it
+                modifiedWord.append(reversedChar);
+            }
+        }
+
+        return modifiedWord.toString();
+    }
+}
