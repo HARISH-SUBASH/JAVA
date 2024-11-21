@@ -1,0 +1,29 @@
+import java.util.*;
+public class Sos
+{
+    public static void main(String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=s.nextInt();
+        }
+        int pd[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            pd[i]=pc(arr[i],i);
+        }
+        int sum=0;
+        for(int i=0;i<n;i++)
+        {
+            sum+=pd[i]*pd[i];
+        }
+        System.out.println(sum);
+    }
+    public static int pc(int number,int index)
+    {
+        return(number/(int)Math.pow(10,index))%10;
+    }
+}
