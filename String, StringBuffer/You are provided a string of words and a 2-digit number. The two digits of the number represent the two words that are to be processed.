@@ -1,0 +1,46 @@
+//extract mid
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner obj=new Scanner(System.in);
+        String s=obj.nextLine();
+        int n=obj.nextInt();
+        int a=n/10;
+        int b=n%10;
+        String[] arr=s.split(" ");
+        process(arr,a);
+        System.out.print(" ");
+        process(arr,b);
+        obj.close();
+    }
+    
+    
+    public static void process(String[] arr,int x)
+    {
+        int c=(arr[x-1].length())/2;
+        if((arr[x-1].length())%2==0) //even
+        {
+            for(int i=c-1;i>=0;i--) //mid-left
+            {
+                System.out.print(arr[x-1].charAt(i));
+            }
+            for(int j=c;j<c*2;j++) //mid-right
+            {
+                System.out.print(arr[x-1].charAt(j));
+            }
+        }
+        else //odd
+        {
+            for(int i=c;i>=0;i--) //mid-left
+            {
+                System.out.print(arr[x-1].charAt(i));
+            }
+            for(int j=c;j<=(c*2);j++) //mid-right
+            {
+                System.out.print(arr[x-1].charAt(j));
+            }
+        }
+    }
+}
