@@ -1,0 +1,39 @@
+public class CommonCharsSum {
+
+    public static void main(String[] args) {
+        char[] input1 = {'a', 'b', 'c'};
+        char[] input2 = {'b', 'c'};
+
+        System.out.println(getSingleDigitSum(input1, input2));
+    }
+
+    public static int getSingleDigitSum(char[] input1, char[] input2) {
+        // Step 1: Find common characters
+        int sum = 0;
+        for (char c1 : input1) {
+            for (char c2 : input2) {
+                if (c1 == c2) {
+                    // Step 2: Add ASCII value of common characters
+                    sum += (int) c1;
+                }
+            }
+        }
+
+        // Step 3: Reduce the sum to a single digit
+        while (sum >= 10) {
+            sum = sumDigits(sum);
+        }
+
+        return sum;
+    }
+
+    // Helper method to calculate sum of digits of a number
+    public static int sumDigits(int num) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        return sum;
+    }
+}
