@@ -1,0 +1,35 @@
+// Java program to count trailing 0s in n!
+import java.io.*;
+import java.util.Scanner;
+class prog {
+    // Function to return trailing
+    // 0s in factorial of n
+    public static void findTrailingZeros(int n)
+    {
+        int count=0;
+        if (n < 0) // Negative Number Edge Case
+            System.out.println("-1");
+
+        // Initialize result
+        
+
+        // Keep dividing n by powers
+        // of 5 and update count
+        int i=1;
+        while(n>Math.pow(5,i))
+        {
+            count += n / Math.pow(5,i);
+            i+=1;
+        }
+        System.out.println(count);
+    }
+
+    // Driver Code
+    public static void main(String[] args)
+    {
+        int n ;
+        Scanner sc= new Scanner(System.in);
+        n=sc.nextInt();
+        findTrailingZeros(n);
+    }
+}
