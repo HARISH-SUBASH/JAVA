@@ -1,0 +1,46 @@
+class Mobile{
+    void basicmobile(String name)
+    {
+        System.out.println(name+" is Manufactured");
+    }
+    Mobile(String name)
+    {
+        basicmobile(name);
+    }
+}
+
+class Cameramobile extends Mobile
+{
+    Cameramobile(String name)
+    {
+        super(name);
+    }
+    void newfeature()
+    {
+        System.out.println("Camera Mobile with 5MG px");
+    }
+}
+
+class Androidmob extends Cameramobile
+{
+    Androidmob(String name)
+    {
+        super(name);
+    }
+    void androidmob()
+    {
+        System.out.println("Touch Screen Mobile is Manufactured");
+    }
+}
+
+public class Main
+{
+    public static void main(String args[])
+    {
+        Mobile mob=new Mobile("Basic Mobile");
+        Cameramobile cam=new Cameramobile("Camera Mobile");
+        Androidmob am=new Androidmob("Android Mobile");
+        cam.newfeature();
+        am.androidmob();
+    }
+}
