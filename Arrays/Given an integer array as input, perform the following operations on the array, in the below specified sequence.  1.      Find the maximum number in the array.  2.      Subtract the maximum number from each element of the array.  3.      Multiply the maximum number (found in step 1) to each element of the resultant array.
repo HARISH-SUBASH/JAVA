@@ -1,0 +1,35 @@
+import java.util.*;
+public class Ao
+{
+    public static void main(String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        int in1=s.nextInt();
+        int[] in2=new int[in1];
+        for(int i=0;i<in1;i++)
+        {
+            in2[i]=s.nextInt();
+        }
+        int max=in2[0];
+        for(int i=1;i<in1;i++)
+        {
+            if(in2[i]>max)
+            {
+                max=in2[i];
+            }
+        }
+        for(int i=0;i<in1;i++)
+        {
+            in2[i]=in2[i]-max;
+        }
+        for(int i=0;i<in1;i++)
+        {
+            in2[i]=in2[i]*max;
+        }
+        for(int i=0;i<in1;i++)
+        {
+            System.out.print(in2[i]
+            +" ");
+        }
+    }
+}
