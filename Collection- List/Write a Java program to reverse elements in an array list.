@@ -1,0 +1,14 @@
+import java.util.*;
+class prog{
+    public static void main(String[] args){
+        Scanner h=new Scanner(System.in);
+        int a=h.nextInt();
+        ArrayList<String> List=new ArrayList<String>();
+        for(int i=0;i<a;i++){
+            List.add(h.next());
+        }
+        System.out.println("List before reversing : \n" + List);
+        Collections.reverse(List);
+        System.out.println("List after reversing : \n"+ List);
+    }
+}
